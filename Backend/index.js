@@ -1,7 +1,5 @@
 require('dotenv').config();
-const DB = require('youssefdb')
-let db = new DB()
-db.collection("p").insertMany()
+
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -53,18 +51,19 @@ app.get('/shuffle', (req, res) => {
 app.get('/exoplanets', (req, res) => {
     const exoplanet = getRandomItem(exoplanets);
 
-    res.json(exoplanet);
+    res.redirect(exoplanet.image_url);
 });
 
 
 app.get('/galaxies', (req, res) => {
     const galaxy = getRandomItem(galaxies);
-    res.json(galaxy)
+    res.redirect(galaxy.image_url)
 });
 
 
 app.use(express.json());
- app.listen(PORT, ()=> {
+
+app.listen(PORT, ()=> {
     console.log("Server is listening to port: " + "\x1b[33m" + PORT + "\x1b[0m"+ 
     "\n" + "URL: " + "\x1b[33m" + `http://localhost:${PORT}` +"\x1b[0m");
 });
