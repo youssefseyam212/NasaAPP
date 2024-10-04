@@ -1,5 +1,7 @@
 require('dotenv').config();
-
+const DB = require('youssefdb')
+let db = new DB()
+db.collection("p").insertMany()
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -51,13 +53,13 @@ app.get('/shuffle', (req, res) => {
 app.get('/exoplanets', (req, res) => {
     const exoplanet = getRandomItem(exoplanets);
 
-    res.redirect(exoplanet.image_url);
+    res.json(exoplanet);
 });
 
 
 app.get('/galaxies', (req, res) => {
     const galaxy = getRandomItem(galaxies);
-    res.redirect(galaxy.image_url)
+    res.json(galaxy)
 });
 
 
