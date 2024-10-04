@@ -1,0 +1,10 @@
+.exoplanets-background {
+    background-image: url("https://example.com/your-image.jpg"); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Adjust height as needed */
+    display: flex; /* Optional: to center content */
+    justify-content: center; /* Optional: to center content horizontally */
+    align-items: center; /* Optional: to center content vertically */
+    color: white; /* Optional: change text color for better visibility */
+}

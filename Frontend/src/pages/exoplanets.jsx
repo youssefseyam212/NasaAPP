@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Cookies from 'js-cookie';
-import '../styles/home-style.css'
+import '../styles/exoplanets-style.css';
 
 export default function Exoplanets() {
     const [planets, setPlanets] = useState([]);
 
-    const navigate = useNavigate();
-
-
+    return (
+        <div className="exoplanets-background">
+            <h1>Exoplanets List</h1>
+            {/* Render planets or other content here */}
+        </div>
+    );
 }
