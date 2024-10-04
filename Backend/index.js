@@ -1,10 +1,10 @@
 require('dotenv').config();
-
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-
 const app = express();
+const DB = require('youssefdb')
+let db = new DB();
 const PORT = process.env.PORT || 3000;
 
 const recentItems = [];
@@ -60,6 +60,15 @@ app.get('/galaxies', (req, res) => {
     res.redirect(galaxy.image_url)
 });
 
+app.get('/planets' , (req,res)=>{
+    let name = req.body.name;
+    try{
+        db.collection('p').findOne(name)
+        res.status(200).json(name)
+    }catch(err){
+        console.log(err)
+    }
+})
 
 app.use(express.json());
 
